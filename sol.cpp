@@ -39,7 +39,7 @@ void perform_test() {
 			start = start - (sz - i - 1);
 			end = end + (sz - i - 1);
 		}
-		ending[i] = end; // don't forget to the index of the last element in a row
+		ending[i] = end; // don't forget to save the index of the last element in a row
 		// visit numbers
 		int val = 0;
 		for(int j = start; j <= end; j++) {
