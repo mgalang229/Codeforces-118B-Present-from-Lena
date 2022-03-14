@@ -27,7 +27,7 @@ void perform_test() {
 		ending[i] = -1; // initialize the array
 	}
 	for(int i = 0; i < sz; i++) {
-		// the proces on every row will start on the center and as
+		// the process on every row will start on the center and as
 		// the row increases, the elements on the left and right of
 		// the center also increases
 		int start = center;
