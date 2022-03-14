@@ -4,8 +4,8 @@ using namespace std;
 void perform_test() {
 	int n;
 	cin >> n;
-	int sz = n * 2 + 1;
-	int center = sz / 2;
+	int sz = n * 2 + 1; // square matrix of the whole figure
+	int center = sz / 2; // center index
 	//0 -> [center, center]
 	//1 -> [center - 1, center + 1]
 	//2 -> [center - 2, center + 2]
@@ -16,6 +16,7 @@ void perform_test() {
 	bool visit_space[sz][sz];
 	for(int i = 0; i < sz; i++) {
 		for(int j = 0; j < sz; j++) {
+			// initialize the 2D arrays
 			a[i][j] = 0;
 			visit_number[i][j] = false;
 			visit_space[i][j] = false;
@@ -23,9 +24,12 @@ void perform_test() {
 	}
 	int ending[sz];
 	for(int i = 0; i < sz; i++) {
-		ending[i] = -1;
+		ending[i] = -1; // initialize the array
 	}
 	for(int i = 0; i < sz; i++) {
+		// the proces on every row will start on the center and as
+		// the row increases, the elements on the left and right of
+		// the center also increases
 		int start = center;
 		int end = center;
 		if(i <= center) {
@@ -35,7 +39,7 @@ void perform_test() {
 			start = start - (sz - i - 1);
 			end = end + (sz - i - 1);
 		}
-		ending[i] = end;
+		ending[i] = end; // don't forget to the index of the last element in a row
 		// visit numbers
 		int val = 0;
 		for(int j = start; j <= end; j++) {
@@ -56,10 +60,10 @@ void perform_test() {
 		for(int j = 0; j < sz; j++) {
 			if(visit_number[i][j]) {
 				cout << a[i][j];
-				if(j < ending[i]) {
+				if(j < ending[i]) { // only put spaces until all numbers are printed
 					cout << " ";
 				}
-			} else if(visit_space[i][j]) {
+			} else if(visit_space[i][j]) { // put the needed prefix spaces
 				cout << "  ";
 			}
 		}
